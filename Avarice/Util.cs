@@ -250,14 +250,14 @@ internal static unsafe class Util
 		bool levelcheck = Svc.ClientState.LocalPlayer.Level >= Svc.Data.GetExcelSheet<Lumina.Excel.Sheets.Action>().GetRow((uint)ActionID.Demolish).ClassJobLevel;
 		uint move = P.memory.LastComboMove;
 		return levelcheck && MNKGauge.CoeurlFury == 0
-			&& (move.EqualsAny((uint)ActionID.TwinSnakes) || move.EqualsAny((uint)ActionID.TrueStrike) || move.EqualsAny((uint)ActionID.RisingRaptor));
+			&& (HasEffect(109) || move.EqualsAny((uint)ActionID.TwinSnakes) || move.EqualsAny((uint)ActionID.TrueStrike) || move.EqualsAny((uint)ActionID.RisingRaptor));
 	}
 	public static bool IsMNKAnticipatedFlank()
 	{
 		bool levelcheck = Svc.ClientState.LocalPlayer.Level >= Svc.Data.GetExcelSheet<Lumina.Excel.Sheets.Action>().GetRow((uint)ActionID.SnapPunch).ClassJobLevel;
 		uint move = P.memory.LastComboMove;
 		return levelcheck && MNKGauge.CoeurlFury > 0
-			&& (move.EqualsAny((uint)ActionID.TwinSnakes) || move.EqualsAny((uint)ActionID.TrueStrike) || move.EqualsAny((uint)ActionID.RisingRaptor));
+			&& (HasEffect(109) || move.EqualsAny((uint)ActionID.TwinSnakes) || move.EqualsAny((uint)ActionID.TrueStrike) || move.EqualsAny((uint)ActionID.RisingRaptor));
 	}
 
 	public static bool IsDRGAnticipatedRear()
