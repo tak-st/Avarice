@@ -176,13 +176,13 @@ internal unsafe class Canvas : Window
            && (!P.currentProfile.AnticipatedDisableTrueNorth || !Svc.ClientState.LocalPlayer.StatusList.Any(x => x.StatusId.EqualsAny(1250u))))
         {
             {
-                if(Svc.Targets.Target is IBattleNpc bnpc && bnpc.IsHostile() && bnpc.HasPositional())
+                if(Svc.Targets.Target is IBattleNpc bnpc && bnpc.IsHostile() && bnpc.HasPositional() && !bnpc.StatusList.Any(x => x.StatusId.EqualsAny(3808u)))
                 {
                     DrawAnticipatedPos(bnpc);
                 }
             }
             {
-                if(Svc.Targets.FocusTarget is IBattleNpc bnpc && Svc.Targets.FocusTarget.Address != Svc.Targets.Target?.Address && bnpc.IsHostile() && bnpc.HasPositional())
+                if(Svc.Targets.FocusTarget is IBattleNpc bnpc && Svc.Targets.FocusTarget.Address != Svc.Targets.Target?.Address && bnpc.IsHostile() && bnpc.HasPositional() && !bnpc.StatusList.Any(x => x.StatusId.EqualsAny(3808u)))
                 {
                     DrawAnticipatedPos(bnpc);
                 }
